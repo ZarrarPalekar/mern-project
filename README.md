@@ -20,6 +20,6 @@
    npm i
 
 3. Start the server:
-   npm start
+   npm run dev
 
 Make sure to follow these steps to successfully set up and run both the client and server components of the project.
