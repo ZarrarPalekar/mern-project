@@ -16,9 +16,13 @@ const App = () => {
     // Fetch sectors data and the parent sectors from the server when the component mounts
     const fetchData = async () => {
       try {
-        const response = await axios.get("/api/data/sectors");
+        const response = await axios.get(
+          "https://mern-project-backend-9wyn.onrender.com/api/data/sectors"
+        );
         setSectorsData(response.data);
-        const responseParent = await axios.get("/api/data/parentSectors");
+        const responseParent = await axios.get(
+          "https://mern-project-backend-9wyn.onrender.com/api/data/parentSectors"
+        );
         setSectorsParentData(responseParent.data);
       } catch (error) {
         console.error("Error fetching sectors data:", error);
@@ -97,11 +101,14 @@ const App = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      await axios.post("/api/data/saveNewSector", {
-        label: childSector,
-        agree: agree,
-        parent: selectedParent,
-      });
+      await axios.post(
+        "https://mern-project-backend-9wyn.onrender.com/api/data/saveNewSector",
+        {
+          label: childSector,
+          agree: agree,
+          parent: selectedParent,
+        }
+      );
       resetForm();
       setReload(true);
       alert("Data Saved Successfully!");
